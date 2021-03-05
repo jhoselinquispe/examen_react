@@ -8,17 +8,50 @@ class CreateTarea extends React.Component {
         super(prop);
         
     }
+    componentDidMount(){
+        this.state = {
+            name: "",
+            description: "",
+            date: "",
+            hour: "",
+        };
+    }
+    componentDidMount() {}
+    registerData() {
+        console.log (this.state);
+    }
     render(){
         return(
         <View styles ={styles.container}>
             <View style={styles.inputtext}>
+
             <VectorIcons name="arrow-with-circle-right" size ={24}color ={Color[Color.key].thirthcolor}></VectorIcons>
+            
             <Texto iconname="rightcieocl"
-            placeholder="Nombre de usuario"/>
+            placeholder="Nombre de usuario"
+            onChangeText={(txt) => {
+                this.setstate.setState({
+                    name: txt,
+
+                });
+            }}
+            />
             <Texto iconname="rightcicleo"
             placeholder="description"/>
+            onChangeText={(txt) => {
+                this.setstate.setState({
+                    description: txt,
+
+                });
+            }}
             <Texto iconname="date"
             placeholder="hour"/>
+            onChangeText={(txt) => {
+                this.setstate.setState({
+                    hour: txt,
+
+                });
+            }}
         </View>
         </View>
         );

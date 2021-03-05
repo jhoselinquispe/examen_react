@@ -16,6 +16,13 @@ class Texto extends React.Component {
             <VectorIcons name="arrow-with-circle-right" size ={24}color ={Color[Color.key].thirthcolor}></VectorIcons>
             <TextInput styles={styles.textinputcolor}
             placeholder={placeholder}
+            secureTextEntry={secureText}
+            keyboardType={key}
+            onChangeText={(text) => {
+                if (onChangeText !=null)
+                onChangeText(text);
+            }}
+    
             />
         </View>
         </View>
