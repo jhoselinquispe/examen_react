@@ -1,16 +1,22 @@
 import axios from 'axios';
 class Request {
 
-    constructor(){
+    constructor(method, uri, data, callback){
+        this.callback=callback;
         this.params ={
-            method:method
+            method:method,
             url:uri,
             data: 'stream',
         };
     }
     start ()
-        axios( this.params).then (function){
-            Response.data.pipe(fs.createWriteStream)
+        axios( this.params)
+        .then ((response) =>{
+          this.callback(response);
         })
+        .catch((error)=>{
+            this.callback(error);
+        });
     }
-}
+
+export default Request;
